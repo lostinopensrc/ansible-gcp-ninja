@@ -1,0 +1,11 @@
+- name: Install pre-requisites  packages for apt module
+  hosts: homelab
+  become: yes
+
+  tasks:
+    - name: Install packages
+      ansible.builtin.apt:
+        state: present 
+        pkg:
+        - python3-google-auth
+        - python3-requests
