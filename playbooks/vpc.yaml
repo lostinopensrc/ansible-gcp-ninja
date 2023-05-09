@@ -2,10 +2,10 @@
   hosts: homelab
   tasks:
     - name: Fetch GCP service account key file from private cloud storage bucket
-      fetch:
-        src: gs://ansible-gcp-ninja/cogent-tide-366115-58ee8da87e73.json
+      ansible.builtin.get_url:
+        url: gs://ansible-gcp-ninja/cogent-tide-366115-58ee8da87e73.json
         dest: /home/lostinopensrc/cogent-tide-366115-58ee8da87e73.json
-        validate_certs: no
+        validate_certs: false
 
     - name: create a network
       google.cloud.gcp_compute_network:
