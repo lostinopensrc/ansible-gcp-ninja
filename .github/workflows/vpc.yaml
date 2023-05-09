@@ -19,4 +19,4 @@ jobs:
 
     - name: Run User Creation Playbook
       run: |
-        ansible-playbook playbooks/vpc.yaml -v
+        ansible-playbook playbooks/vpc.yaml -i inventory/homelab -v
