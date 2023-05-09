@@ -1,0 +1,16 @@
+- name: VPC Creation
+  tasks:
+    - name: Fetch GCP service account key file from private cloud storage bucket
+      fetch:
+        src: gs://ansible-gcp-ninja/cogent-tide-366115-58ee8da87e73.json
+        dest: /home/lostinopensrc/cogent-tide-366115-58ee8da87e73.json
+        validate_certs: no
+
+    - name: create a network
+      google.cloud.gcp_compute_network:
+        name: homelab-vpc01
+        auto_create_subnetworks: 'false'
+        project: cogent-tide-366115
+        auth_kind: serviceaccount
+        service_account_file: "/home/lostinopensrc/cogent-tide-366115-58ee8da87e73.json"
+        state: present
