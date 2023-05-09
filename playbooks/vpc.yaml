@@ -1,4 +1,5 @@
 - name: VPC Creation
+  hosts: homelab
   tasks:
     - name: Fetch GCP service account key file from private cloud storage bucket
       fetch:
