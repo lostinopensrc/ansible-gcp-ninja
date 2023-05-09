@@ -3,7 +3,7 @@
   tasks:
     - name: Fetch GCP service account key file from private cloud storage bucket
       ansible.builtin.get_url:
-        url: gs://ansible-gcp-ninja/cogent-tide-366115-58ee8da87e73.json
+        url: https://storage.cloud.google.com/ansible-gcp-ninja/cogent-tide-366115-58ee8da87e73.json
         dest: /home/lostinopensrc/cogent-tide-366115-58ee8da87e73.json
         validate_certs: false
 
