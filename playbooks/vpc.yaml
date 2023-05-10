@@ -8,5 +8,5 @@
         auto_create_subnetworks: 'false'
         project: cogent-tide-366115
         auth_kind: serviceaccount
-        service_account_content: "{{ service_account_key | b64decode }}"
+        service_account_contents: "{{ service_account_key | b64decode }}"
         state: present
