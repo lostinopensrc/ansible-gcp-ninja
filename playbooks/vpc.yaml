@@ -5,10 +5,6 @@
     gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
 
   tasks:
-    - name: Debug service account key
-      debug:
-        var: gcs_sa
-
     - name: create a network
       google.cloud.gcp_compute_network:
         name: homelab-vpc01
