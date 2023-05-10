@@ -4,7 +4,7 @@
   tasks:
     - name: Debug service account key
       debug:
-        var: "service_account_key | b64decode"
+        var: service_account_key
 
     - name: create a network
       google.cloud.gcp_compute_network:
@@ -12,5 +12,5 @@
         auto_create_subnetworks: 'false'
         project: cogent-tide-366115
         auth_kind: serviceaccount
-        service_account_contents: "{{ service_account_key | b64decode }}"
+        service_account_contents: "{{ service_account_key }}"
         state: present
