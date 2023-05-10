@@ -1,16 +1,19 @@
 - name: VPC Creation
   hosts: homelab
   gather_facts: no
+  vars:
+    gcs_sa: "{{ service_account_key }}"
+    
   tasks:
     - name: Debug service account key
       debug:
-        var: service_account_key
+        var: gcs_sa
 
-    - name: create a network
-      google.cloud.gcp_compute_network:
-        name: homelab-vpc01
-        auto_create_subnetworks: 'false'
-        project: cogent-tide-366115
-        auth_kind: serviceaccount
-        service_account_contents: "{{ service_account_key }}"
-        state: present
+    # - name: create a network
+    #   google.cloud.gcp_compute_network:
+    #     name: homelab-vpc01
+    #     auto_create_subnetworks: 'false'
+    #     project: cogent-tide-366115
+    #     auth_kind: serviceaccount
+    #     service_account_contents: "{{ gcs_sa }}"
+    #     state: present
