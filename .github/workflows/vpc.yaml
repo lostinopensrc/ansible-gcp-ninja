@@ -10,7 +10,7 @@ on:
       - 'playbooks/vpc.yaml'
 
 env:
-  SERVICE_ACCOUNT: $ {{ secrets.GCP_SA_TOKEN }}
+  SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
       
 jobs:
   vpc:
