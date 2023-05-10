@@ -2,7 +2,7 @@
   hosts: homelab
   gather_facts: no
   vars:
-    gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT' }}"
+    gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
 
   tasks:
     - name: Debug service account key
