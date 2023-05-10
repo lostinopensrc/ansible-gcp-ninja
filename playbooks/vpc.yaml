@@ -4,7 +4,7 @@
   tasks:
     - name: Debug service account key
       debug:
-        var: {{ service_account_key }}
+        var: "{{ service_account_key }}"
 
     - name: create a network
       google.cloud.gcp_compute_network:
