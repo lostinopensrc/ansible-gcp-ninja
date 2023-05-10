@@ -4,7 +4,7 @@
   tasks:
     - name: Debug service account key
       debug:
-        var: service_account_key | b64decode
+        var: "service_account_key | b64decode"
 
     - name: create a network
       google.cloud.gcp_compute_network:
