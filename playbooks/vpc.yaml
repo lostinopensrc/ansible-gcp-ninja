@@ -1,0 +1,15 @@
+- name: VPC Creation
+  hosts: homelab
+  gather_facts: no
+  vars:
+    gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
+
+  tasks:
+    - name: create a network
+      google.cloud.gcp_compute_network:
+        name: homelab-vpc01
+        auto_create_subnetworks: 'false'
+        project: cogent-tide-366115
+        auth_kind: serviceaccount
+        service_account_contents: "{{ gcs_sa }}"
+        state: present
