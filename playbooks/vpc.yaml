@@ -15,5 +15,5 @@
         auto_create_subnetworks: 'false'
         project: cogent-tide-366115
         auth_kind: serviceaccount
-        service_account_contents: "{{ gcs_sa | b64decode | from_json }}"
+        service_account_contents: "{{ gcs_sa }}"
         state: present
