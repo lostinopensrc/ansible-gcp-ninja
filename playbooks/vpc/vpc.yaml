@@ -17,4 +17,4 @@
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
         state: present
-      loop: "{{ vpc_name }}""
+      loop: "{{ vpc_name }}"
