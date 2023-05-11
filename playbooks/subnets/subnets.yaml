@@ -4,18 +4,28 @@
   vars:
     gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
   
-  vars_files:
-    - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/subnets/vars.yaml
+  # vars_files:
+  #   - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/subnets/vars.yaml
   
   tasks:
-    - name: create sub-network
-      google.cloud.gcp_compute_subnetwork:
-        region: "{{ item.key }}"
-        name: "{{ item.value.subnet_name }}"
-        network: "{{ item.value.network.name }}"
-        ip_cidr_range: "{{ item.value.cidr }}"
+    - name: get network info
+      google.cloud.gcp_compute_network_info:
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
-        state: present
-      loop: "{{ subnets | dict2items }}"
+        register: network_info
+
+    - name: Print the full output
+      ansible.builtin.debug:
+        var: network_info
+    # - name: create sub-network
+    #   google.cloud.gcp_compute_subnetwork:
+    #     region: "{{ item.key }}"
+    #     name: "{{ item.value.subnet_name }}"
+    #     network: "{{ item.value.network.name }}"
+    #     ip_cidr_range: "{{ item.value.cidr }}"
+    #     project: cogent-tide-366115
+    #     auth_kind: serviceaccount
+    #     service_account_contents: "{{ gcs_sa }}"
+    #     state: present
+    #   loop: "{{ subnets | dict2items }}"
