@@ -1,0 +1,3 @@
+vpc_name:
+  - homelab-vpc01
+  - homelab-vpc02
