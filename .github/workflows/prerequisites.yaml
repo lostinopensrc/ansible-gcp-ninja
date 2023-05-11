@@ -19,4 +19,4 @@ jobs:
 
     - name: Run User Creation Playbook
       run: |
-        ansible-playbook playbooks/gcp-prerequisites.yaml -i inventory/homelab
+        ansible-playbook playbooks/prerequisites/gcp-prerequisites.yaml -i inventory/homelab
