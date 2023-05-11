@@ -13,7 +13,7 @@
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
-        register: network_info
+      register: network_info
 
     - name: Print the full output
       ansible.builtin.debug:
