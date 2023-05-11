@@ -3,6 +3,7 @@
   gather_facts: no
   vars:
     gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
+    ansible_become_password: "{{ lookup('env', 'BECOME_PASS') }}"
 
   tasks:
     - name: create a network
