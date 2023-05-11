@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'playbooks/gcp-prerequisites.yaml'
+      - 'playbooks/prerequisites/gcp-prerequisites.yaml'
       
 env:
   SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
