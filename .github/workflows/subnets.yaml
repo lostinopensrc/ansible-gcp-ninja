@@ -1,0 +1,25 @@
+name: Subnets creation
+
+on:
+  workflow_dispatch:
+
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'playbooks/subnets/subnets.yaml'
+
+env:
+  SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
+      
+jobs:
+  vpc:
+    runs-on: ansible-gcp-ninja
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run VPC Creation Playbook
+      run: |
+        ansible-playbook playbooks/subnets/subnets.yaml -i inventory/homelab
