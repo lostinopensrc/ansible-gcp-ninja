@@ -11,6 +11,8 @@ on:
 
 env:
   SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
+  
+  BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
       
 jobs:
   vpc:

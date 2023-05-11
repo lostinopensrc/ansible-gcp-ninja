@@ -8,7 +8,11 @@ on:
       - 'main'
     paths:
       - 'playbooks/gcp-prerequisites.yaml'
+
+env:
+  BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
       
+
 jobs:
   install:
     runs-on: ansible-gcp-ninja

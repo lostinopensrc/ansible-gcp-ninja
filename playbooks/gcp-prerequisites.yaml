@@ -1,7 +1,8 @@
 - name: Install pre-requisites  packages for apt module
   hosts: homelab
   become: yes
-
+  vars:
+    ansible_become_password: "{{ lookup('env', 'BECOME_PASS') }}"
   tasks:
     - name: Install packages
       ansible.builtin.apt:
