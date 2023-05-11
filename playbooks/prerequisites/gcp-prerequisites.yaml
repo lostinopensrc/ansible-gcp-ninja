@@ -1,0 +1,18 @@
+- name: Install pre-requisites  packages for gcp collections
+  hosts: homelab
+  become: yes
+  gather_facts: no
+  vars:
+    ansible_become_password: "{{ lookup('env', 'BECOME_PASS') }}"
+
+  tasks:
+    - name: Install packages
+      ansible.builtin.apt:
+        state: present 
+        pkg:
+        - python3-google-auth
+        - python3-requests
+    
+    - name: Install  google.cloud Collections
+      ansible.builtin.command: ansible-galaxy collection install google.cloud
+      

@@ -7,12 +7,12 @@ on:
     branches:
       - 'main'
     paths:
-      - 'playbooks/gcp-prerequisites.yaml'
-
+      - 'playbooks/prerequisites/gcp-prerequisites.yaml'
+      
 env:
+  SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
   BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
       
-
 jobs:
   install:
     runs-on: ansible-gcp-ninja
@@ -23,4 +23,4 @@ jobs:
 
     - name: Run User Creation Playbook
       run: |
-        ansible-playbook playbooks/gcp-prerequisites.yaml -i inventory/homelab -v
+        ansible-playbook playbooks/prerequisites/gcp-prerequisites.yaml -i inventory/homelab
