@@ -1,4 +1,4 @@
-- name: VPC Creation
+- name: Subnets Creation
   hosts: homelab
   gather_facts: no
   vars:
@@ -12,7 +12,7 @@
       google.cloud.gcp_compute_subnetwork:
         region: "{{ item.key }}"
         name: "{{ item.value.subnet_name }}"
-        network: "{{ item.value.network_name }}"
+        network: "{{ item.value.network.network_name }}"
         ip_cidr_range: "{{ item.value.cidr }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount

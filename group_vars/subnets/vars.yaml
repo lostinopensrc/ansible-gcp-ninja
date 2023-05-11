@@ -1,9 +1,11 @@
 subnets:
   asia-south2:
     subnet_name: subnet-01
-    network_name: homelab-vpc01
+    network:
+      network_name: homelab-vpc01
     cidr: 10.1.0.0/24
   europe-west4:
     subnet_name: subnet-02
-    network_name: homelab-vpc02
+    network:
+      network_name: homelab-vpc02
     cidr: 10.2.0.0/24

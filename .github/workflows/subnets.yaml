@@ -20,6 +20,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Run VPC Creation Playbook
+    - name: Run subnets Creation Playbook
       run: |
         ansible-playbook playbooks/subnets/subnets.yaml -i inventory/homelab
