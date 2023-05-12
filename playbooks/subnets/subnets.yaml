@@ -19,17 +19,14 @@
     #   ansible.builtin.debug:
     #     var: network_info
 
-    - name: create sub-network
+    - name: create sub-networks
       google.cloud.gcp_compute_subnetwork:
-        network: "{{ item.0.name }}"
-        region: "{{ item.1.region }}"
-        name: "{{ item.1.name }}"
-        ip_cidr_range: "{{ item.1.ip_cidr_range }}"
+        name: "{{ item.key }}"
+        ip_cidr_range: "{{ item.value.ip_cidr_range }}"
+        region: "{{ item.value.region }}"
+        network: "{{ item.value.selfLink }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
         state: present
-      loop: "{{ query('subelements', networks, 'subnets') }}"
-      # loop_control:
-      #   # loop_var: item
-      #   # index_var: index
+      loop: "{{ networks | dict2items }}"
