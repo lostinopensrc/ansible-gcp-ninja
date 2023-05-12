@@ -21,12 +21,15 @@
 
     - name: create sub-network
       google.cloud.gcp_compute_subnetwork:
-        network: "{{ item.key }}"
-        region: "{{ item.value.region }}"
-        name: "{{ item.value.subnet_name }}"
-        ip_cidr_range: "{{ item.value.cidr }}"
+        network: "{{ item.network }}"
+        region: "{{ item.region }}"
+        name: "{{ item.name }}"
+        ip_cidr_range: "{{ item.ip_cidr_range }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
         state: present
-      loop: "{{ networks |dict2items }}"
+      loop: "{{ query('subelements', networks, 'subnets') }}"
+      loop_control:
+        loop_var: item
+        index_var: index

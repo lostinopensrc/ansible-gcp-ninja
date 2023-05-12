@@ -1,9 +1,12 @@
 networks:
-  homelab-vpc01:
-      subnet_name: subnet-01
-      region: asia-south2
-      cidr: 10.1.0.0/24
-  homelab-vpc02:
-      subnet_name: subnet-02
-      region: europe-west4
-      cidr: 10.2.0.0/24
+  - name: homelab-vpc01
+    subnets:
+      - name: asia-south2
+        region: asia-south2
+        ip_cidr_range: 10.1.0.0/24
+
+  - name: homelab-vpc02
+    subnets:
+      - name: subnet-02
+        region: europe-west4
+        ip_cidr_range: 10.2.0.0/24
