@@ -9,6 +9,7 @@
   
   tasks:
     - name: create a network
+      loop: "{{ vpc_name }}"
       google.cloud.gcp_compute_network:
         name: "{{ item }}"
         auto_create_subnetworks: 'false'
@@ -17,7 +18,6 @@
         service_account_contents: "{{ gcs_sa }}"
         state: present
       register: network
-      loop: "{{ vpc_name }}"
 
     - name : Debug network
       debug:
