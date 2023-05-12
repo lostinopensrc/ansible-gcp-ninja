@@ -33,4 +33,4 @@
         service_account_contents: "{{ gcs_sa }}"
         network: "{{ network[item] }}"
         state: present
-      loop: "{{ networks|subelements('subnet') }}"
+      loop: "{{ networks|subelements('subnet')| dict2items }}"
