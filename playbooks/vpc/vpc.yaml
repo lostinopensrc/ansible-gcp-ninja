@@ -16,8 +16,9 @@
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
         state: present
-      loop: "{{ vpc_name }}"
       register: network
+      loop: "{{ vpc_name }}"
+      
     
     - name: create sub-networks
       google.cloud.gcp_compute_subnetwork:
