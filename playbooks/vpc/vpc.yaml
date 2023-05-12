@@ -28,7 +28,7 @@
         name: "{{ item.subnet }}"
         ip_cidr_range: "{{ item.ip_cidr_range }}"
         region: "{{ item.region }}"
-        network: "{{ network }}"
+        network: "{{ network[item] }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
