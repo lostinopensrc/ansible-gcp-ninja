@@ -4,8 +4,8 @@
   vars:
     gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
   
-  # vars_files:
-  #   - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/subnets/vars.yaml
+  vars_files:
+    - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/subnets/vars.yaml
   
   tasks:
     # - name: get network info
