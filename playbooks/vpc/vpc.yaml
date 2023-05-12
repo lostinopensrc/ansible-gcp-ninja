@@ -28,9 +28,9 @@
         name: "{{ item.key }}"
         ip_cidr_range: "{{ item.value.ip_cidr_range }}"
         region: "{{ item.value.region }}"
-        network: "{{ network[item] }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
+        network: "{{ network[item] }}"
         state: present
       loop: "{{ networks | dict2items }}"
