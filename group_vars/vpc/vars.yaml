@@ -3,10 +3,10 @@ vpc_name:
   - homelab-vpc02
 
 networks:
-    - subnet: subnet01
+    subnet01: 
       region: asia-south2
       ip_cidr_range: 10.1.0.0/24
 
-    - subnet: subnet02 
+    subnet02:  
       region: europe-west4
       ip_cidr_range: 10.2.0.0/24
