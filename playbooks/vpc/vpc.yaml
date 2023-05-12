@@ -23,14 +23,14 @@
       debug:
         var: network
     
-    # - name: create sub-networks
-    #   google.cloud.gcp_compute_subnetwork:
-    #     name: "{{ item.key }}"
-    #     ip_cidr_range: "{{ item.value.ip_cidr_range }}"
-    #     region: "{{ item.value.region }}"
-    #     network: "{{ network }}"
-    #     project: cogent-tide-366115
-    #     auth_kind: serviceaccount
-    #     service_account_contents: "{{ gcs_sa }}"
-    #     state: present
-    #   loop: "{{ networks | dict2items }}"
+    - name: create sub-networks
+      google.cloud.gcp_compute_subnetwork:
+        name: "{{ item.subnet }}"
+        ip_cidr_range: "{{ item.ip_cidr_range }}"
+        region: "{{ item.region }}"
+        network: "{{ network }}"
+        project: cogent-tide-366115
+        auth_kind: serviceaccount
+        service_account_contents: "{{ gcs_sa }}"
+        state: present
+      loop: "{{ networks }}"
