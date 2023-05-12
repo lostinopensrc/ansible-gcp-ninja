@@ -30,6 +30,6 @@
         service_account_contents: "{{ gcs_sa }}"
         state: present
       loop: "{{ query('subelements', networks, 'subnets') }}"
-      loop_control:
-        loop_var: item
-        index_var: index
+      # loop_control:
+      #   # loop_var: item
+      #   # index_var: index
