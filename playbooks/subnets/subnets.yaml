@@ -23,7 +23,7 @@
       google.cloud.gcp_compute_subnetwork:
         network: "{{ item.network }}"
         region: "{{ item.region }}"
-        name: "{{ item.name }}"
+        name: "{{ item.0.name }}"
         ip_cidr_range: "{{ item.ip_cidr_range }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount
