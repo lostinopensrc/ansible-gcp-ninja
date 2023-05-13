@@ -33,4 +33,4 @@
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
         state: present
-      loop: "{{ networks }}"
+      loop: "{{ networks | dict2items }}"
