@@ -25,10 +25,10 @@
     
     - name: create sub-networks
       google.cloud.gcp_compute_subnetwork:
-        network: "{{ item.selfLink }}"
+        network: "{{ item.value.selfLink }}"
         name: "{{ item.key }}"
-        ip_cidr_range: "{{ item.cidr }}"
-        region: "{{ item.region }}"
+        ip_cidr_range: "{{ item.value.cidr }}"
+        region: "{{ item.value.region }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
