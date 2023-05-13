@@ -26,7 +26,7 @@
     - name: create sub-networks
       google.cloud.gcp_compute_subnetwork:
         network: "{{ item.selfLink }}"
-        name: "{{ item.name }}"
+        name: "{{ item.key }}"
         ip_cidr_range: "{{ item.cidr }}"
         region: "{{ item.region }}"
         project: cogent-tide-366115
