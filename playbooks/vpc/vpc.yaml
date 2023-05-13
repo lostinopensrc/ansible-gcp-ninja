@@ -25,7 +25,7 @@
     
     - name: create sub-networks
       google.cloud.gcp_compute_subnetwork:
-        network: "{{ item.network.selfLink.value }}"
+        network: "{{ item.network.name.selfLink }}"
         name: "{{ item.name }}"
         ip_cidr_range: "{{ item.cidr }}"
         region: "{{ item.region }}"
