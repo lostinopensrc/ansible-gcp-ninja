@@ -18,10 +18,6 @@
         service_account_contents: "{{ gcs_sa }}"
         state: present
       register: network
-
-    - name : Debug network
-      debug:
-        var: network
     
     - name: create sub-networks
       google.cloud.gcp_compute_subnetwork:
