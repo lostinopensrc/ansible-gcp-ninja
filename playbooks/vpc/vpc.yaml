@@ -3,13 +3,13 @@
   gather_facts: no
   vars:
     gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
-    ansible_become_password: "{{ lookup('env', 'BECOME_PASS') }}"
   
   vars_files:
     - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/vpc/vars.yaml
   
   tasks:
     - name: create a network
+      loop: "{{ vpc_name }}"
       google.cloud.gcp_compute_network:
         name: "{{ item }}"
         auto_create_subnetworks: 'false'
@@ -17,4 +17,16 @@
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
         state: present
-      loop: "{{ vpc_name }}"
+      register: network
+    
+    - name: create sub-networks
+      google.cloud.gcp_compute_subnetwork:
+        network: "{{ item.network.name }}"
+        name: "{{ item.name }}"
+        ip_cidr_range: "{{ item.cidr }}"
+        region: "{{ item.region }}"
+        project: cogent-tide-366115
+        auth_kind: serviceaccount
+        service_account_contents: "{{ gcs_sa }}"
+        state: present
+      loop: "{{ subnets }}"
