@@ -2,13 +2,15 @@ vpc_name:
   - homelab-vpc01
   - homelab-vpc02
 
-networks:
-  subnet01:
+subnets:
+  - name: subnet01
+    cidr: 10.0.0.0/24
     region: asia-south2
-    cidr: 10.1.0.0/24
-    selfLink: "https://www.googleapis.com/compute/v1/projects/cogent-tide-366115/global/networks/homelab-vpc01"
-
-  subnet02:    
-    region: europe-west4
+    network:
+      selfLink: "https://www.googleapis.com/compute/v1/projects/cogent-tide-366115/global/networks/homelab-vpc01"
+      
+  - name: subnet02
     cidr: 10.2.0.0/24
-    selfLink: "https://www.googleapis.com/compute/v1/projects/cogent-tide-366115/global/networks/homelab-vpc02"
+    region: europe-west4
+    network:
+      selfLink: "https://www.googleapis.com/compute/v1/projects/cogent-tide-366115/global/networks/homelab-vpc02"
