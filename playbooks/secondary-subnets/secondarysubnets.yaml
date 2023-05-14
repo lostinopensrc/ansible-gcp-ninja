@@ -1,0 +1,23 @@
+- name: Secondary Subnets Creation
+  hosts: homelab
+  gather_facts: no
+  vars:
+    gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
+  
+  vars_files:
+    - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/secondarysubnets/vars.yaml
+  
+  tasks:    
+    - name: create secondary-subnets
+      google.cloud.gcp_compute_subnetwork:
+        network: "{{ item.network.name }}"
+        name: "{{ item.name }}"
+        ip_cidr_range: "{{ item.cidr }}"
+        region: "{{ item.region }}"
+        secondary_ip_ranges: "{{ item.secondary_ip_ranges }}" 
+        private_ip_google_access: true
+        project: cogent-tide-366115
+        auth_kind: serviceaccount
+        service_account_contents: "{{ gcs_sa }}"
+        state: present
+      loop: "{{ subnets }}"

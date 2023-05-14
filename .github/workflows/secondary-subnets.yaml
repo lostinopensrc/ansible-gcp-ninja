@@ -1,0 +1,25 @@
+name: Secondary Subnets creation
+
+on:
+  workflow_dispatch:
+
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'playbooks/secondary-subnets/secondarysubnets.yaml'
+
+env:
+  SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
+      
+jobs:
+  secondary-subnets:
+    runs-on: ansible-gcp-ninja
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run Secondary Subnets Creation Playbook
+      run: |
+        ansible-playbook playbooks/secondary-subnets/secondarysubnets.yaml -i inventory/homelab
