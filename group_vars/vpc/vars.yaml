@@ -1,3 +1,7 @@
+vpc_name:
+  - homelab-vpc01
+  - homelab-vpc02
+  
 subnets:
   - name: subnet01
     cidr: 10.0.0.0/24

@@ -17,7 +17,6 @@
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
         state: present
-      register: network
     
     - name: create subnets and secondary-subnets
       google.cloud.gcp_compute_subnetwork:
