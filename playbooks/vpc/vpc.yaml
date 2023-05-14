@@ -24,7 +24,7 @@
         name: "{{ item.name }}"
         ip_cidr_range: "{{ item.cidr }}"
         region: "{{ item.region }}"
-        secondary_ip_ranges: "{{ item.secondary_ip_ranges }}" 
+        secondary_ip_ranges: "{{ item.secondary_ip_ranges.[*] }}" 
         private_ip_google_access: true
         project: cogent-tide-366115
         auth_kind: serviceaccount
