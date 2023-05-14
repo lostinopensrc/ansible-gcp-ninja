@@ -19,12 +19,14 @@
         state: present
       register: network
     
-    - name: create sub-networks
+    - name: create subnets and secondary-subnets
       google.cloud.gcp_compute_subnetwork:
         network: "{{ item.network.name }}"
         name: "{{ item.name }}"
         ip_cidr_range: "{{ item.cidr }}"
         region: "{{ item.region }}"
+        secondary_ip_ranges: "{{ item.secondary_ip_ranges }}" 
+        private_ip_google_access: true
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
