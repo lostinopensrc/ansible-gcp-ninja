@@ -18,13 +18,18 @@
         service_account_contents: "{{ gcs_sa }}"
         state: present
     
-    - name: create sub-networks
+    - name: create subnets and secondary-subnets
       google.cloud.gcp_compute_subnetwork:
         network: "{{ item.network.name }}"
         name: "{{ item.name }}"
         ip_cidr_range: "{{ item.cidr }}"
         region: "{{ item.region }}"
-        private_ip_google_access: true
+        secondary_ip_ranges:
+          - ip_cidr_range: "{{ item.secondary_ip_ranges[0].ip_cidr_range }}"
+            range_name: "{{ item.secondary_ip_ranges[0].range_name }}" 
+          - ip_cidr_range: "{{ item.secondary_ip_ranges[1].ip_cidr_range }}"
+            range_name: "{{ item.secondary_ip_ranges[1].range_name }}" 
+        private_ip_google_access: true  
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"
