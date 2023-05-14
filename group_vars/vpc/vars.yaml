@@ -10,9 +10,9 @@ subnets:
       name:
         selfLink: "https://www.googleapis.com/compute/v1/projects/cogent-tide-366115/global/networks/homelab-vpc01"
     secondary_ip_ranges:
-      - ip_cidr_range: 10.0.3.0/21
+      - ip_cidr_range: 10.3.0.0/21
         range_name: "pods-subnet01"
-      - ip_cidr_range: 10.0.5.0/21
+      - ip_cidr_range: 10.5.0.0/21
         range_name: "services-subnet01"
 
   - name: subnet02
@@ -22,7 +22,7 @@ subnets:
       name:
         selfLink: "https://www.googleapis.com/compute/v1/projects/cogent-tide-366115/global/networks/homelab-vpc02"
     secondary_ip_ranges:
-      - ip_cidr_range: 10.0.4.0/21
+      - ip_cidr_range: 10.4.0.0/21
         range_name: "pods-subnet02"
-      - ip_cidr_range: 10.0.6.0/21
+      - ip_cidr_range: 10.6.0.0/21
         range_name: "services-subnet02"
