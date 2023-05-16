@@ -13,7 +13,7 @@ env:
   SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
       
 jobs:
-  vpc:
+  disks:
     runs-on: ansible-gcp-ninja
 
     steps:
