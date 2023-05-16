@@ -1,0 +1,20 @@
+- name: Compute Disk Creation
+  hosts: homelab
+  gather_facts: no
+  vars:
+    gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
+  
+  vars_files:
+    - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/disks/vars.yaml
+  
+  tasks:
+    - name: create a compute disk
+      loop: "{{ disk }}"
+      google.cloud.gcp_compute_disk:
+        name: "{{ item.name }}"
+        size_gb: "{{ item.size_gb }}"
+        zone: "{{ item.zone }}"
+        project: cogent-tide-366115
+        auth_kind: serviceaccount
+        service_account_contents: "{{ gcs_sa }}"
+        state: present

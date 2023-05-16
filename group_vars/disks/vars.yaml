@@ -1,0 +1,4 @@
+disk:
+  - name: homelab-disk1
+    zone: asia-south2-a
+    size_gb: 10
