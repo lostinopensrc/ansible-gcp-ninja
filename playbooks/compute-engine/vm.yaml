@@ -24,7 +24,7 @@
           access_configs:
           - name: "External NAT"
             type: "ONE_TO_ONE_NAT"
-            network_tier: "STANDARD"
+            network_tier: "PREMIUM"
           subnetwork: "{{ item.subnetwork.name }}"
         zone: "{{ item.zone }}"
         project: cogent-tide-366115
