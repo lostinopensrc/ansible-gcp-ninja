@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'playbooks/compute-engine/vms.yaml'
+      - 'playbooks/compute-engine/vm.yaml'
 
 env:
   SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
@@ -22,4 +22,4 @@ jobs:
 
     - name: Run Compute VM Creation Playbook
       run: |
-        ansible-playbook playbooks/compute-engine/vms.yaml -i inventory/homelab
+        ansible-playbook playbooks/compute-engine/vm.yaml -i inventory/homelab
