@@ -2,3 +2,4 @@ disk:
   - name: homelab-disk1
     zone: asia-south2-a
     size_gb: 10
+    source_image: "projects/ubuntu-os-cloud/global/images/family/ubuntu-2204-lts
