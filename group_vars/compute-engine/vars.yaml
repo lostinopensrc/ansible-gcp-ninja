@@ -1,0 +1,19 @@
+vms:
+  - name: homelab-vm1
+    machine_type: "e2-small"
+    isAutoDelete: "true"
+    isBoot: "true"
+    mode: "READ_WRITE"
+    labels:
+      tags:
+        environment: "homelab"
+    source:
+      disk:
+        selfLink: "projects/cogent-tide-366115/zones/asia-south2-a/disks/homelab-disk1"
+    network:
+      name:
+        selfLink: "projects/cogent-tide-366115/global/networks/homelab-vpc01"
+    zone: asia-south2-a
+    subnetwork:
+      name:
+        selfLink: "projects/cogent-tide-366115/regions/asia-south2/subnetworks/subnet01"
