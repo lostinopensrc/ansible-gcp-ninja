@@ -18,8 +18,9 @@ To perform installtion of collection we have a Ansible Playbook and a github act
 As per above image this repo makes use of Ansible group_vars concept and the structure is divided as follows:
 
 1. Github Workflows: Each GCP resource creation has a github action workflow Job.
-2. Each GCP resource being made has there own vars.yaml file under group_vars/resource directory.
-3. playbooks directory contains ansible playbooks for creation of each resource.
+2. Repo is using a Self hosted Github Runner on Control Plane VM
+3. Each GCP resource being made has there own vars.yaml file under group_vars/resource directory.
+4. playbooks directory contains ansible playbooks for creation of each resource.
 
 
 ## High level Flow Diagram :
