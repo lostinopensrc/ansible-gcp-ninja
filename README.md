@@ -20,3 +20,8 @@ As per above image this repo makes use of Ansible group_vars concept and the str
 1. Github Workflows: Each GCP resource creation has a github action workflow Job.
 2. Each GCP resource being made has there own vars.yaml file under group_vars/resource directory.
 3. playbooks directory contains ansible playbooks for creation of each resource.
+
+
+## High level Flow Diagram :
+
+![HLD](images/Ansible_IAC_GCP.JPG)
