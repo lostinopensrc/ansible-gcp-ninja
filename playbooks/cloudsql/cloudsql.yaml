@@ -1,0 +1,32 @@
+- name: Cloud SQL Creation
+  hosts: homelab
+  gather_facts: no
+  vars:
+    gcs_sa: "{{ lookup('env', 'SERVICE_ACCOUNT') }}"
+  
+  vars_files:
+    - /home/lostinopensrc/ansible-gcp-ninja/_work/ansible-gcp-ninja/ansible-gcp-ninja/group_vars/cloudsql/vars.yaml
+  
+  tasks:        
+    - name: create a cloud sql instance
+      loop: "{{ sql }}"
+      google.cloud.gcp_sql_instance:
+        name: "{{ item.name }}"
+        instance_type: "{{ item.instance_type }}"
+        backend_type: "{{ item.backend_type }}"
+        connection_name: "{{ item.connection_name }}"
+        max_disk_size: "{{ item.max_disk_size }}"
+        settings:
+          availability_type: "{{ item.settings.availability_type }}"
+          ip_configuration:
+             authorized_networks:
+             - name: "{{ item.settings.ip_configuration.authorized_networks.name }}"
+               value: "{{ item.settings.ip_configuration.authorized_networks.value }}"
+             ipv4_enabled: "{{ item.settings.ip_configuration.ipv4_enabled }}"
+             private_network: "{{ item.settings.ip_configuration.private_network }}"
+          tier: "{{ item.settings.ip_configuration.tier }}"
+        region: " {{ item.region }} "
+        project: cogent-tide-366115
+        auth_kind: serviceaccount
+        service_account_contents: "{{ gcs_sa }}"        
+        state: present

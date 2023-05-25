@@ -1,0 +1,29 @@
+sql:
+  - name: "homelab-pg01"
+    backend_type: “SECOND_GEN”
+    instance_type: "CLOUD_SQL_INSTANCE"
+    connection_name: "homelab-pg01"
+    database_version: "POSTGRES_12_11"
+    max_disk_size: 10737418240
+    region: asia-south2
+    settings:
+      availability_type: "REGIONAL"
+      ip_configuration:
+        authorized_networks:
+        - name: google dns server
+          value:  8.8.8.8/32
+        ipv4_enabled: true
+        private_network: projects/cogent-tide-366115/global/networks/homelab-vpc01
+        tier: db-standard-1
+    labels:
+      tags:
+        environment: "homelab"
+    source:
+      disk:
+        selfLink: "projects/cogent-tide-366115/zones/asia-south2-a/disks/homelab-disk1"
+    network:
+      name:
+        selfLink: "projects/cogent-tide-366115/global/networks/homelab-vpc01"
+    subnetwork:
+      name:
+        selfLink: "projects/cogent-tide-366115/regions/asia-south2/subnetworks/subnet01"
