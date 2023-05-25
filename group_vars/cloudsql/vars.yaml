@@ -1,6 +1,6 @@
 sql:
   - name: "homelab-pg01"
-    backend_type: “SECOND_GEN”
+    backend_type: SECOND_GEN
     instance_type: "CLOUD_SQL_INSTANCE"
     connection_name: "homelab-pg01"
     database_version: "POSTGRES_12_11"
