@@ -1,8 +1,7 @@
 sql:
   - name: "homelab-pg01"
     connection_name: "homelab-pg01"
-    backend_type: 
-      SECOND_GEN: PostgreSQL
+    backend_type: SECOND_GEN
     database_version: "POSTGRES_12_11"
     max_disk_size: 10737418240
     region: asia-south2
