@@ -7,6 +7,9 @@ sql:
     region: asia-south2
     settings:
       availability_type: "REGIONAL"
+      backup_configuration:
+        binary_log_enabled: true
+        enabled: true
       ip_configuration:
         authorized_networks:
         - name: google dns server

@@ -18,6 +18,9 @@
         max_disk_size: "{{ item.max_disk_size }}"
         settings:
           availability_type: "{{ item.settings.availability_type }}"
+          backup_configuration:
+            binary_log_enabled: "{{ item.settings.backup_configuration.binary_log_enabled }}"
+            enabled: "{{ item.settings.backup_configuration.enabled }}"
           ip_configuration:
              authorized_networks:
              - name: "{{ item.settings.ip_configuration.authorized_networks[0].name }}"
