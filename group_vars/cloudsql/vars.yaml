@@ -14,3 +14,4 @@ sql:
           value:  8.8.8.8/32
         ipv4_enabled: true
         private_network: projects/cogent-tide-366115/global/networks/homelab-vpc01
+      tier: db-lightweight-1
