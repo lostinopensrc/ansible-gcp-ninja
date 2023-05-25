@@ -12,7 +12,7 @@
       loop: "{{ sql }}"
       google.cloud.gcp_sql_instance:
         name: "{{ item.name }}"
-        backend_type: "{{ item.backend_type }}"
+        backend_type: "{{ item.backend_type.SECOND_GEN }}"
         database_version: "{{ item.database_version }}"
         connection_name: "{{ item.connection_name }}"
         max_disk_size: "{{ item.max_disk_size }}"
