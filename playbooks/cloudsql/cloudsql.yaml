@@ -20,8 +20,8 @@
           availability_type: "{{ item.settings.availability_type }}"
           ip_configuration:
              authorized_networks:
-             - name: "{{ item.settings.ip_configuration.authorized_networks.name }}"
-               value: "{{ item.settings.ip_configuration.authorized_networks.value }}"
+             - name: "{{ item.settings.ip_configuration.authorized_networks[0].name }}"
+               value: "{{ item.settings.ip_configuration.authorized_networks[0].value }}"
              ipv4_enabled: "{{ item.settings.ip_configuration.ipv4_enabled }}"
              private_network: "{{ item.settings.ip_configuration.private_network }}"
           tier: "{{ item.settings.ip_configuration.tier }}"
