@@ -1,15 +1,11 @@
 sql:
   - name: "homelab-pg01"
-    backend_type: SECOND_GEN
     connection_name: "homelab-pg01"
     database_version: "POSTGRES_12_11"
     max_disk_size: 10737418240
     region: asia-south2
     settings:
       availability_type: "REGIONAL"
-      backup_configuration:
-        binary_log_enabled: false
-        enabled: false
       ip_configuration:
         authorized_networks:
         - name: google dns server
