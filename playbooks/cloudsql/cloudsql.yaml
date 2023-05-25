@@ -25,7 +25,7 @@
              ipv4_enabled: "{{ item.settings.ip_configuration.ipv4_enabled }}"
              private_network: "{{ item.settings.ip_configuration.private_network }}"
           tier: "{{ item.settings.ip_configuration.tier }}"
-        region: " {{ item.region }} "
+        region: "{{ item.region }}"
         project: cogent-tide-366115
         auth_kind: serviceaccount
         service_account_contents: "{{ gcs_sa }}"        
