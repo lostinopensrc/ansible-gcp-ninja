@@ -24,10 +24,27 @@ As per above image this repo makes use of Ansible group_vars concept and the str
 3. Each GCP resource being made has there own vars.yaml file under group_vars/resource directory.
 4. playbooks directory contains ansible playbooks for creation of each resource.
 
+
 ## High level Flow Diagram :
 
 ![HLD](images/Ansible_IAC_GCP.JPG)
 
+
+## GCP Resources being created: 
+#### VPC:
+![VPC](images/vpc.JPG)
+
+#### Disk:
+![VPC](images/disk.JPG)
+
+#### Disk:
+![DISK](images/disk.JPG)
+
+#### GCE-VM:
+![GCE](images/GCE-VM.JPG)
+
+#### CloudSQL(Postgres):
+![CloudSQL](images/cloudsql-postgres.JPG)
 
 ### Observations of Using Ansible as IAC:
 
