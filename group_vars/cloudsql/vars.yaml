@@ -6,7 +6,7 @@ sql:
     max_disk_size: 10737418240
     region: asia-south2
     settings:
-      availability_type: "REGIONAL"
+      availability_type: "ZONAL"
       ip_configuration:
         authorized_networks:
         - name: google dns server
