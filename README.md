@@ -37,9 +37,6 @@ As per above image this repo makes use of Ansible group_vars concept and the str
 #### Disk:
 ![VPC](images/disk.JPG)
 
-#### Disk:
-![DISK](images/disk.JPG)
-
 #### GCE-VM:
 ![GCE](images/GCE-VM.JPG)
 
