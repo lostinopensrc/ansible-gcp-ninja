@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'playbooks/cloudsql/cloudsql.yaml'
+      - 'group_vars/cloudsql/vars.yaml'
 
 env:
   SERVICE_ACCOUNT: ${{ secrets.GCP_SA_TOKEN }}
